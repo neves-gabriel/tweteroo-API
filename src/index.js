@@ -28,7 +28,15 @@ app.post('/sign-up', (req, res) => {
 app.post('/tweets', (req, res) => {
     const { tweet } = req.body;
     const username = req.headers.user;
-    const newTweet = { username, tweet };
+    let avatar;
+
+    users.forEach(user => {
+        if ( user.username === username ) {
+            avatar = user.avatar;
+        }
+    }); 
+    
+    const newTweet = { username, avatar, tweet };
 
     if ( username !== undefined && usernameRegex.test(username) && tweet.length > 0 ) {
         tweets.unshift(newTweet);
