@@ -8,8 +8,6 @@ app.use(json())
 
 const users = [];
 
-const tweets = [];
-
 const usernameRegex = /^[a-zA-Z0-9]+$/;
 
 const avatarRegex = /(https?:\/\/.*\.(?:png|jpg))/i;
